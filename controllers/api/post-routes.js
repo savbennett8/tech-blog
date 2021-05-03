@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
+            'post_body',
             'created_at',
         ],
         //ensures latest posted articles appear first
@@ -50,6 +51,7 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'title',
+            'post_body',
             'created_at',
         ],
         include: [
