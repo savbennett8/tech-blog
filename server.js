@@ -3,6 +3,9 @@ const express = require('express');
 const controllers = require('./controllers');
 // import sequelize connection
 const sequelize = require('./config/connection');
+//express-handlebars
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -25,6 +28,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 //express session
 app.use(session(sess));
+//express-handlebars
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(controllers);
 
