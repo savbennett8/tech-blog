@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const controllers = require('./controllers');
 // import sequelize connection
@@ -20,6 +21,8 @@ const sess = {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// serve up public files
+app.use(express.static(path.join(__dirname, 'public')));
 //express session
 app.use(session(sess));
 
