@@ -4,7 +4,7 @@ const { User, Post, Comment } = require('../../models');
 // api/users
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ['password'] }
+        // attributes: { exclude: ['password'] }
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -16,13 +16,14 @@ router.get('/', (req, res) => {
 // api/users/:id
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
+        // attributes: { exclude: ['password'] },
         include: [
             {
                 model: Post,
                 attributes: [
                     'id',
                     'title',
+                    'post_body',
                     'created_at'
                 ]
             },
