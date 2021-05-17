@@ -13,6 +13,25 @@ router.get('/', (req, res) => {
         });
 });
 
+//get one comment
+router.get('/:id', (req, res) => {
+    Comment.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404), json({ message: 'Comment not found' });
+            }
+
+            res.render();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
 // allow to create post if user is logged in
 router.post('/', (req, res) => {
     //check the session

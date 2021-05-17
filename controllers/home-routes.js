@@ -2,20 +2,11 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
-//homepage hosts any existing posts as well as links for:
-//signin
-//dashboard
-//homepage
-
 //homepage route
 router.get('/', (req, res) => {
     console.log(req.session);
     Post.findAll({
-        attributes: [
-            'id',
-            'title',
-            'created_at'
-        ],
+        attributes: ['id', 'title', 'created_at'],
         include: [
             {
                 model: Comment,
@@ -55,8 +46,5 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
-
-//dashboard route
-
 
 module.exports = router;
