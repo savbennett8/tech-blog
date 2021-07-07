@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            window.alert('An account with that email address does not exist. Please create an account!');
+            window.alert('No user found with those credentials. Please check that it was entered correctly or create an account!');
             console.log(response.statusText);
         }
     }
