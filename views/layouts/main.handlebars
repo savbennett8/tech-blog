@@ -16,7 +16,7 @@
             </h1>
             <nav>
                 {{#if loggedIn}}
-                {{!-- also need dashboard button --}}
+                <a href="/dashboard" id="dashboard">Dashboard</a>
                 <button id="logout" class="btn-no-style">Logout</button>
                 {{else}}
                 <a href="/login">Login</a>
@@ -26,7 +26,7 @@
         <main>
             {{{ body }}}
         </main>
-        <footer>
+        <footer id="footer">
             Thanks for visiting!
         </footer>
     </div>
