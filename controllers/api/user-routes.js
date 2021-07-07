@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // api/users
 router.get('/', (req, res) => {
     User.findAll({
-        // attributes: { exclude: ['password'] }
+        attributes: { exclude: ['password'] }
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -16,24 +17,15 @@ router.get('/', (req, res) => {
 // api/users/:id
 router.get('/:id', (req, res) => {
     User.findOne({
-        // attributes: { exclude: ['password'] },
+        attributes: { exclude: ['password'] },
         include: [
             {
                 model: Post,
-                attributes: [
-                    'id',
-                    'title',
-                    'post_body',
-                    'created_at'
-                ]
+                attributes: ['id', 'title', 'post_body', 'created_at']
             },
             {
                 model: Comment,
-                attributes: [
-                    'id',
-                    'comment_body',
-                    'created_at'
-                ],
+                attributes: ['id', 'comment_body', 'created_at'],
                 include: {
                     model: Post,
                     attributes: ['title']
@@ -107,7 +99,7 @@ router.post('/login', (req, res) => {
 });
 
 //logout
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
