@@ -1,0 +1,11 @@
+<div class="title">
+    <a class="post-title" href="api/posts/{{id}}">{{title}}</a>
+</div>
+<div class="body">
+    {{post_body}}
+</div>
+<div class="meta">
+    Created by {{user.username}} on {{format_date created_at}}
+    |
+    {{comments.length}} {{format_plural "comment" comments.length}}
+</div>
