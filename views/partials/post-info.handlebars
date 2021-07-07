@@ -7,5 +7,5 @@
 <div class="meta">
     Created by {{user.username}} on {{format_date created_at}}
     |
-    <a href="api/posts/{{id}}">{{format_plural comments.length}} comment(s)</a>
+    {{comments.length}} {{format_plural "comment" comments.length}}
 </div>
