@@ -16,8 +16,7 @@ async function postFormHandler(event) {
         }
     });
     if (response.ok) {
-        document.location.reload();
-        console.log('post created!')
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }

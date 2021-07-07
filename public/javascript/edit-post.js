@@ -20,7 +20,7 @@ async function editPost(event) {
     if (response.ok) {
         document.location.replace('/dashboard/');
     } else {
-        alert('There was an error!' + response.statusText);
+        alert(response.statusText);
     }
 }
 
