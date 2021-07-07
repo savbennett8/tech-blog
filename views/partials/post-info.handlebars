@@ -5,7 +5,7 @@
     {{post_body}}
 </div>
 <div class="meta">
-    Created by {{user.username}} on {{created_at}}
+    Created by {{user.username}} on {{format_date created_at}}
     |
-    <a href="api/posts/{{id}}">{{comments.length}} comment(s)</a>
+    <a href="api/posts/{{id}}">{{format_plural comments.length}} comment(s)</a>
 </div>
