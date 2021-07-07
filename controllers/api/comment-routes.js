@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // get all comments
 router.get('/', (req, res) => {
@@ -33,7 +34,7 @@ router.get('/:id', (req, res) => {
 });
 
 // allow to create post if user is logged in
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     //check the session
     if (req.session) {
         Comment.create({
@@ -51,7 +52,7 @@ router.post('/', (req, res) => {
 });
 
 //delete comment
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
@@ -59,7 +60,7 @@ router.delete('/:id', (req, res) => {
     })
         .then(dbCommentData => {
             if (!dbCommentData) {
-                res.status(404).json({ message: 'No post found with this id' });
+                res.status(404).json({ message: 'No comment found with this id' });
                 return;
             }
             res.json(dbCommentData);
