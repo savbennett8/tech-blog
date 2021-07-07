@@ -4,13 +4,13 @@
 Module 14 weekly challenge assignment. Visit the Tech Blog to see what's being talked about in the tech community! You can browse through the posts or create an account and share your own thoughts!
 
 ## Table of Contents
-[Installation](link)
+[Installation](https://github.com/savbennett8/tech-blog#installation)
 <br>
-[Usage](link)
+[Usage](https://github.com/savbennett8/tech-blog#usage)
 <br>
-[Contributing](link)
+[Contributing](https://github.com/savbennett8/tech-blog#contributing)
 <br>
-[Questions](link)
+[Questions](https://github.com/savbennett8/tech-blog#questions)
 
 
 ### Installation
@@ -25,7 +25,7 @@ I used the following packages to create this website:
 * sequelize
 
 ### Usage
-Check out the deployed website at [this link](link) to start blogging! Here's a screenshot of what the blog looks like when you're logged in and creating posts:
+Check out the deployed website at [this link](https://boiling-springs-97301.herokuapp.com/) to start blogging! Here's a screenshot of what the blog looks like when you're logged in and creating posts:
 <img src="tech-blog-screenshot.JPG">
 
 ### Contributing
